@@ -20,8 +20,9 @@
       "predictiveBackGestureEnabled": false
     },
     "web": {
-      "output": "metri",
-      "favicon": "static"
+      "bundler": "metro",git 
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
     },
     "plugins": [
       "expo-router",
