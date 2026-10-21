@@ -54,3 +54,34 @@ Join our community of developers creating universal apps.
 
 - [Expo on GitHub](https://github.com/expo/expo): View our open source platform and contribute.
 - [Discord community](https://chat.expo.dev): Chat with Expo users and ask questions.
+
+## Deploy to cloudflare pages
+
+0. Add public/\_redirects file (create public folder if it's not exist)
+
+```
+# inside _redirects
+/*  /index.html  200
+```
+
+1. Add build web script into package.json
+
+```
+    "build:web": "npx expo export -p web",
+```
+
+2. Change web configuration in app.json
+
+```js
+    "web": {
+      "bundler": "metro",
+      "output": "static",
+      "favicon": "./assets/images/favicon.png"
+    }
+```
+
+3. Deploy via wrangler
+
+```bash
+npx wrangler pages deploy dist --project-name=basic-expo-web-to-cp
+```
